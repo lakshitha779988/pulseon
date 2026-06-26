@@ -3,6 +3,9 @@ import { useLocation } from "react-router-dom";
 import TopBar from "../components/TopBar";
 import SideNav from "../components/SideNav";
 import BottomNav from "../components/BottomNav";
+import OfflineBanner from "../components/OfflineBanner";
+import InstallPrompt from "../components/InstallPrompt";
+import { useConnectionBanner } from "../hooks/useConnectionBanner";
 
 const pageTitles = {
   "/": "Dashboard",
@@ -22,6 +25,7 @@ const getTitle = (pathname) => {
 const AppLayout = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
+  const { isBannerVisible } = useConnectionBanner();
 
   useEffect(() => {
     setIsNavOpen(false);
@@ -30,8 +34,13 @@ const AppLayout = ({ children }) => {
   return (
     <div className="app-shell">
       <TopBar title={getTitle(location.pathname)} onMenuClick={() => setIsNavOpen((v) => !v)} />
+      <OfflineBanner />
       <SideNav isOpen={isNavOpen} onClose={() => setIsNavOpen(false)} />
-      <div className="app-main" style={{ paddingTop: "var(--topbar-h)" }}>
+      <div
+        className="app-main"
+        style={{ paddingTop: isBannerVisible ? "calc(var(--topbar-h) + 38px)" : "var(--topbar-h)" }}
+      >
+        <InstallPrompt />
         <main className="app-content page-fade" key={location.pathname}>
           {children}
         </main>
