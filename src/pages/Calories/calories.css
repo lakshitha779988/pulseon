@@ -1,0 +1,250 @@
+.calories-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calorie-summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+@media (min-width: 640px) {
+  .calorie-summary-card {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+.calorie-ring-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.calorie-ring { width: 100%; height: 100%; }
+
+.calorie-ring-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calorie-value {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.calorie-unit {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.calorie-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.calorie-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calorie-stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.calorie-stat-row > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.calorie-stat-value {
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+.calorie-stat-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.calorie-goal-presets {
+  margin-top: 4px;
+}
+
+.goal-presets {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.goal-presets button {
+  flex: 1;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 8px 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.goal-presets button.is-active {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  border-color: var(--accent);
+}
+
+.calorie-form {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.calorie-form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.calorie-form-row input {
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.calorie-form-row input:first-child { flex: 1; }
+
+.calorie-input-narrow { width: 90px; }
+
+.meal-type-select {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meal-type-select button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.meal-type-select button.is-active {
+  background: var(--energy-dim);
+  color: var(--energy);
+  border-color: var(--energy);
+}
+
+.meal-groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .meal-groups { grid-template-columns: repeat(2, 1fr); }
+}
+
+.meal-group { padding: 16px; }
+
+.meal-group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.meal-group-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-sm);
+  background: var(--energy-dim);
+  color: var(--energy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-group-header h3 {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.meal-group-total {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.meal-group-empty {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.meal-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meal-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.meal-entry:last-child { border-bottom: none; }
+
+.meal-entry-name { flex: 1; font-weight: 600; }
+
+.meal-entry-cal { color: var(--text-muted); font-weight: 600; }
+
+.meal-entry button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-sm);
+  border: none;
+  background: var(--danger-dim);
+  color: var(--danger);
+  flex-shrink: 0;
+}

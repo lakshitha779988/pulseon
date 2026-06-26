@@ -1,0 +1,12 @@
+/* Global rules not covered by design tokens or component styles */
+
+#root {
+  min-height: 100vh;
+}
+
+.loading-text {
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 40px 0;
+  text-align: center;
+}
